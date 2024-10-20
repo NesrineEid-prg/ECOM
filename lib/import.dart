@@ -10,3 +10,7 @@ part './widget/appbar-widget.dart';
 part './widget/search-app-widget.dart';
 part './widget/image-widget.dart';
 part './widget/categorie-widget.dart';
+part './widget/product-cart-widget.dart';
+//model
+part './model/categorie-model.dart';
+part './model/product-model.dart';

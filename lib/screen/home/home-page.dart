@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -29,7 +29,36 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       currentIndex = value;
                     });
-                  })
+                  }),
+              const CategrieWidget(),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Special For You",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "See All",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              const SizedBox(height: 10),
+              GridView.builder(
+                  // physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.78,
+                      mainAxisSpacing: 20),
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    return ProductCartWidget(
+                      product: products[index],
+                    );
+                  }),
+              const Row(children: [Text('')]),
             ],
           ),
         ),
