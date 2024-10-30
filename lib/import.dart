@@ -14,3 +14,11 @@ part './widget/product-cart-widget.dart';
 //model
 part './model/categorie-model.dart';
 part './model/product-model.dart';
+//details
+part './screen/details/datails-page.dart';
+part './screen/details/details-appbar.dart';
+part './screen/details/details-image.dart';
+part './screen/details/details-item.dart';
+part './screen/details/details-colors.dart';
+part './screen/details/details-description.dart';
+part './screen/details/add-cart.dart';

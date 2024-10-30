@@ -5,4 +5,5 @@ class AppConstant {
   static const appSecodrycolor = Color.fromRGBO(73, 150, 250, 0.91);
   static const appTextcolor = Color.fromRGBO(36, 35, 35, 0.91);
   static const appStatusBarcolor = Color.fromRGBO(238, 236, 236, 0.91);
+  static const appwhitecolor = Colors.white;
 }

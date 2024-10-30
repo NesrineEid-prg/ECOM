@@ -45,7 +45,7 @@ class ImageWidget extends StatelessWidget {
                 5,
                 (index) => AnimatedContainer(
                     duration: const Duration(microseconds: 300),
-                    width: currentIndex == index ? 15 : 0,
+                    width: currentIndex == index ? 15 : 3,
                     height: 8,
                     margin: const EdgeInsets.only(right: 3),
                     decoration: BoxDecoration(
