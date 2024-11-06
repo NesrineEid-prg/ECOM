@@ -13,6 +13,7 @@ class _AddToCartState extends State<AddToCart> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 11),
       child: Container(
@@ -34,10 +35,14 @@ class _AddToCartState extends State<AddToCart> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        setState(() {});
+                        if (currentindex != 1) {
+                          setState(() {
+                            currentindex--;
+                          });
+                        }
                       },
                       icon: const Icon(
-                        Icons.add,
+                        Icons.remove,
                         size: 16,
                         color: AppConstant.appwhitecolor,
                       )),
@@ -50,7 +55,9 @@ class _AddToCartState extends State<AddToCart> {
                   const SizedBox(width: 4),
                   IconButton(
                       onPressed: () {
-                        setState(() {});
+                        setState(() {
+                          currentindex++;
+                        });
                       },
                       icon: const Icon(
                         color: AppConstant.appwhitecolor,
@@ -61,7 +68,18 @@ class _AddToCartState extends State<AddToCart> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                provider.tgoogleFavorite(widget.product);
+                const snackbar = SnackBar(
+                  content: Text(
+                    'successfully added!',
+                    style: TextStyle(
+                        fontSize: 22, color: AppConstant.appSecodrycolor),
+                  ),
+                  duration: Duration(milliseconds: 1),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackbar);
+              },
               child: Container(
                 height: 55,
                 decoration: BoxDecoration(

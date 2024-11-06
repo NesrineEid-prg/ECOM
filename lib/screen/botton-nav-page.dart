@@ -11,7 +11,7 @@ class _BottonNavBarState extends State<BottonNavBar> {
   int currentIndex = 2;
   List screen = [
     const Scaffold(),
-    const FavoritePge(),
+    FavoritePge(),
     const HomePage(),
     const CartPage(),
     const Scaffold()
@@ -19,7 +19,6 @@ class _BottonNavBarState extends State<BottonNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {

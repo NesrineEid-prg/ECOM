@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 //screen
 part './screen/botton-nav-page.dart';
 part './constant/app-const.dart';
+
 part 'screen/cart/cart-page.dart';
+part './screen/cart/cart-checkout.dart';
 part './screen/home/home-page.dart';
 part 'screen/favorite/favorite-page.dart';
 //widget
@@ -22,3 +25,6 @@ part './screen/details/details-item.dart';
 part './screen/details/details-colors.dart';
 part './screen/details/details-description.dart';
 part './screen/details/add-cart.dart';
+
+//provider
+part './provider/cart-provider.dart';
