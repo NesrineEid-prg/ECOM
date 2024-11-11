@@ -24,7 +24,8 @@ part './screen/details/details-image.dart';
 part './screen/details/details-item.dart';
 part './screen/details/details-colors.dart';
 part './screen/details/details-description.dart';
-part './screen/details/add-cart.dart';
+part 'screen/cart/add-cart.dart';
 
 //provider
 part './provider/cart-provider.dart';
+part './provider/favorite-provider.dart';

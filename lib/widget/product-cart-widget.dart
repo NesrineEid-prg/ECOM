@@ -1,19 +1,25 @@
 part of '../import.dart';
 
-class ProductCartWidget extends StatelessWidget {
+class ProductCartWidget extends StatefulWidget {
   final ProductModel product;
 
   const ProductCartWidget({super.key, required this.product});
 
   @override
+  State<ProductCartWidget> createState() => _ProductCartWidgetState();
+}
+
+class _ProductCartWidgetState extends State<ProductCartWidget> {
+  @override
   Widget build(BuildContext context) {
+    final provider = FavoriteProvider.of(context);
     return GestureDetector(
         onTap: () {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => DetailsPage(
-                        product: product,
+                        product: widget.product,
                       )));
         },
         child: Padding(
@@ -33,9 +39,9 @@ class ProductCartWidget extends StatelessWidget {
                     const SizedBox(height: 15),
                     Center(
                       child: Hero(
-                        tag: product.image,
+                        tag: widget.product.image,
                         child: Image.asset(
-                          product.image,
+                          widget.product.image,
                           width: 130,
                           height: 130,
                           fit: BoxFit.cover,
@@ -44,7 +50,7 @@ class ProductCartWidget extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     Text(
-                      product.title,
+                      widget.product.title,
                       style: const TextStyle(fontSize: 15),
                     ),
                     const SizedBox(height: 5),
@@ -52,19 +58,19 @@ class ProductCartWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$${product.price}',
+                          '\$${widget.product.price}',
                           style: const TextStyle(fontSize: 15),
                         ),
                         Row(
                             children: List.generate(
-                                product.colors.length,
+                                widget.product.colors.length,
                                 (index) => Container(
                                       width: 18,
                                       height: 18,
                                       margin: const EdgeInsets.only(right: 4),
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: product.colors[index]),
+                                          color: widget.product.colors[index]),
                                     )))
                       ],
                     )
@@ -84,9 +90,13 @@ class ProductCartWidget extends StatelessWidget {
                             bottomLeft: Radius.circular(10)),
                         color: AppConstant.appSecodrycolor),
                     child: GestureDetector(
-                        onTap: () {},
-                        child: const Icon(
-                          Icons.favorite,
+                        onTap: () {
+                          provider.tgoogleFavorite(widget.product);
+                        },
+                        child: Icon(
+                          provider.isExist(widget.product)
+                              ? Icons.favorite
+                              : Icons.favorite_border,
                           size: 22,
                           color: AppConstant.appwhitecolor,
                         )),

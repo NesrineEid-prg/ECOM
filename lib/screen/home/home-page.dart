@@ -9,8 +9,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
+  int selectedcat = 0;
+
   @override
   Widget build(BuildContext context) {
+    List<List<ProductModel>> selectedCategories = [all, wear, electronics];
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -52,10 +55,10 @@ class _HomePageState extends State<HomePage> {
                       crossAxisCount: 2,
                       childAspectRatio: 0.78,
                       mainAxisSpacing: 20),
-                  itemCount: products.length,
+                  itemCount: selectedCategories[selectedcat].length,
                   itemBuilder: (context, index) {
                     return ProductCartWidget(
-                      product: products[index],
+                      product: selectedCategories[selectedcat][index],
                     );
                   }),
               const Row(children: [Text('')]),

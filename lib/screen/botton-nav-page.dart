@@ -11,7 +11,7 @@ class _BottonNavBarState extends State<BottonNavBar> {
   int currentIndex = 2;
   List screen = [
     const Scaffold(),
-    FavoritePge(),
+    const FavoritePage(),
     const HomePage(),
     const CartPage(),
     const Scaffold()

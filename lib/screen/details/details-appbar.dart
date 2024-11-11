@@ -1,10 +1,13 @@
 part of '../../import.dart';
 
 class DetailsAppbar extends StatelessWidget {
-  const DetailsAppbar({super.key});
+  final ProductModel products;
+  const DetailsAppbar({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavoriteProvider.of(context);
+
     return Padding(
       padding: const EdgeInsets.all(11),
       child: Row(
@@ -32,9 +35,14 @@ class DetailsAppbar extends StatelessWidget {
           IconButton(
               style: IconButton.styleFrom(
                   backgroundColor: AppConstant.appwhitecolor),
-              onPressed: () {},
-              icon: const Icon(
-                Icons.favorite,
+              onPressed: () {
+                provider.tgoogleFavorite(products);
+              },
+              icon: Icon(
+                provider.isExist(products)
+                    ? Icons.favorite
+                    : Icons.favorite_border,
+                color: AppConstant.appTextcolor,
                 size: 30,
               ))
         ],

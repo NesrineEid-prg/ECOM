@@ -21,7 +21,9 @@ class _DetailsPageState extends State<DetailsPage> {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              const DetailsAppbar(),
+              DetailsAppbar(
+                products: widget.product,
+              ),
               DetailsImage(
                   image: widget.product.image,
                   onchange: (index) {
