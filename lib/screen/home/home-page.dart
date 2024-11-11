@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
   int selectedcat = 0;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,53 @@ class _HomePageState extends State<HomePage> {
                       currentIndex = value;
                     });
                   }),
-              const CategrieWidget(),
+              SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  itemCount: selectedCategories.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: selectedIndex == index
+                                ? Colors.blue
+                                : Colors.transparent),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 65,
+                                height: 66,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    image: DecorationImage(
+                                        image:
+                                            AssetImage(categories[index].image),
+                                        fit: BoxFit.contain)),
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                categories[index].title,
+                                style: const TextStyle(fontSize: 15),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,10 +102,10 @@ class _HomePageState extends State<HomePage> {
                       crossAxisCount: 2,
                       childAspectRatio: 0.78,
                       mainAxisSpacing: 20),
-                  itemCount: selectedCategories[selectedcat].length,
+                  itemCount: selectedCategories[selectedIndex].length,
                   itemBuilder: (context, index) {
                     return ProductCartWidget(
-                      product: selectedCategories[selectedcat][index],
+                      product: selectedCategories[selectedIndex][index],
                     );
                   }),
               const Row(children: [Text('')]),

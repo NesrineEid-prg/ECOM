@@ -95,6 +95,29 @@ final List<ProductModel> all = [
     rate: 4.0,
     quantity: 1,
   ),
+
+
+  
+ 
+  ProductModel(
+    title: "Smart Watch",
+    description: ''' Elevate Your Everyday Style. The Sleek\n
+    Contoured Shape And Sporty Details Make These
+     Adidas Sneakers A Must-Have Addition To Your Collection.''',
+    image: "assets/images/sports shoes.png",
+    price: 55,
+    seller: "addidas",
+    colors: [
+      Colors.black,
+      Colors.amber,
+      Colors.purple,
+    ],
+    category: "Shoes",
+    review: "(30 Reviews)",
+    rate: 4.0,
+    quantity: 1,
+  ),
+
 ];
 final List<ProductModel> wear = [
   ProductModel(
@@ -164,6 +187,26 @@ final List<ProductModel> electronics = [
     ],
     category: "Electronics",
     review: "(20 Reviews)",
+    rate: 4.0,
+    quantity: 1,
+  ),
+];
+final List<ProductModel> shoes = [
+  ProductModel(
+    title: "Smart Watch",
+    description: ''' Elevate Your Everyday Style. The Sleek\n
+    Contoured Shape And Sporty Details Make These
+     Adidas Sneakers A Must-Have Addition To Your Collection.''',
+    image: "assets/images/sports shoes.png",
+    price: 55,
+    seller: "addidas",
+    colors: [
+      Colors.black,
+      Colors.amber,
+      Colors.purple,
+    ],
+    category: "Shoes",
+    review: "(30 Reviews)",
     rate: 4.0,
     quantity: 1,
   ),
